@@ -1,0 +1,18 @@
+syntax="proto3";
+
+package rblock;
+
+message ScoreRequest{
+    uint32 score=1;
+    uint32 topk=2;
+}
+message ScoreResponse{
+    bool success=1;
+    uint32 rank=2;
+    repeated uint32 scores=3;
+}
+
+service Score{
+    rpc QueryScore(ScoreRequest) returns (ScoreResponse);
+}
+
